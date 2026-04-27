@@ -171,40 +171,15 @@ function Footer() {
               <li><a href="#prizes">Prizes</a></li>
               <li><a href="#games">Daily Games</a></li>
               <li><a href="#juniors">Juniors</a></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h5>Company</h5>
-            <ul>
               <li><a href="#waitlist">Waitlist</a></li>
-              <li><a href="mailto:partners@the72ndhole.com">Partner With Us</a></li>
-              <li><a href="mailto:hello@the72ndhole.com">Press</a></li>
-              <li><a href="mailto:hello@the72ndhole.com">Contact</a></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h5>Legal</h5>
-            <ul>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Promotion Terms</a></li>
-              <li><a href="#">Responsible Play</a></li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <span>© MMXXVI · The 72<sup>nd</sup> Hole · Play more. Win more.</span>
-          <div className="footer-social">
-            <a href="#" aria-label="Instagram">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3v3a4 4 0 0 0 4 4v3a7 7 0 0 1-4-1.3V16a5 5 0 1 1-5-5v3a2 2 0 1 0 2 2V3h3z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.5a3 3 0 0 0-2.1-2.1C18 6 12 6 12 6s-6 0-7.9.4A3 3 0 0 0 2 8.5C1.6 10.4 1.6 12 1.6 12s0 1.6.4 3.5a3 3 0 0 0 2.1 2.1C6 18 12 18 12 18s6 0 7.9-.4a3 3 0 0 0 2.1-2.1c.4-1.9.4-3.5.4-3.5s0-1.6-.4-3.5zM10 15V9l5 3-5 3z"/></svg>
-            </a>
-          </div>
+          <span className="footer-credit">
+            Built by <a href="https://cncrte.co" target="_blank" rel="noopener noreferrer">cncrte.co</a>
+          </span>
         </div>
       </div>
     </footer>

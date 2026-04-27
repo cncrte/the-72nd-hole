@@ -529,6 +529,12 @@ body {
 @media (max-width: 560px) {
   .hero--phone .hero-content { padding-top: clamp(104px, 14vh, 140px); }
   .hero-phone-text h1.display { font-size: clamp(30px, 8.4vw, 44px); }
+  .hero-ctas .btn {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 13px 18px;
+    gap: 8px;
+  }
   .phone {
     width: min(80vw, 280px);
     height: auto;
@@ -1456,15 +1462,13 @@ body {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 64px;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  margin-bottom: 56px;
+  align-items: start;
 }
-@media (max-width: 880px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-}
-@media (max-width: 560px) {
-  .footer-grid { grid-template-columns: 1fr; }
+@media (max-width: 720px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 .footer-brand p {
   margin-top: 24px;
@@ -1501,6 +1505,11 @@ body {
   flex-wrap: wrap;
   gap: 16px;
 }
+.footer-credit a {
+  color: var(--ink-mute);
+  transition: color 0.2s ease;
+}
+.footer-credit a:hover { color: var(--gold); }
 .footer-social { display: flex; gap: 16px; }
 .footer-social a {
   width: 32px; height: 32px;
