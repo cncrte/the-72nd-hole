@@ -79,28 +79,45 @@ function QRGrid() {
 }
 
 /* ============== Waitlist ============== */
+const WEB3FORMS_KEY = '33067708-dec8-4be6-8a94-6da1bf2cf8c7';
+
 function Waitlist({ formRef }) {
   const [email, setEmail] = useStateW('');
   const [postcode, setPostcode] = useStateW('');
   const [err, setErr] = useStateW('');
+  const [submitting, setSubmitting] = useStateW(false);
   const [submitted, setSubmitted] = useStateW(false);
 
   const validateEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!validateEmail(email)) {
       setErr('Please enter a valid email.');
       return;
     }
     setErr('');
-    // Persist locally for the demo
+    setSubmitting(true);
     try {
-      const list = JSON.parse(localStorage.getItem('the72_waitlist') || '[]');
-      list.push({ email, postcode, ts: Date.now() });
-      localStorage.setItem('the72_waitlist', JSON.stringify(list));
-    } catch (e) {}
-    setSubmitted(true);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New 72nd Hole waitlist signup',
+          from_name: 'The 72nd Hole — Waitlist',
+          email,
+          postcode,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Submission failed.');
+      setSubmitted(true);
+    } catch (e2) {
+      setErr(e2.message || 'Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -125,8 +142,8 @@ function Waitlist({ formRef }) {
                   onChange={(e) => { setEmail(e.target.value); if (err) setErr(''); }}
                   required
                 />
-                <button type="submit" className="btn btn-primary">
-                  Join <span className="btn-arrow">→</span>
+                <button type="submit" className="btn btn-primary" disabled={submitting}>
+                  {submitting ? 'Joining…' : <>Join <span className="btn-arrow">→</span></>}
                 </button>
               </div>
               <input
